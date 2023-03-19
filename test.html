@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Delay Test</title>
+	<script src="main.js"></script>
+</head>
+<body>
+    <button id="btnTest">Test</button>
+</body>
+<script>
+    const btnTest = document.querySelector('#btnTest');
+
+    // 監聽 click 事件
+    btnTest.addEventListener('click', async () => {
+        // 创建 Device 的实例
+        let Device = new Module.Device();
+        console.log(Device);
+
+        // 调用 GetICInfo 函数，返回 ICInfo 结构
+        let icInfo = Device.GetICInfo();
+        console.log(icInfo);
+
+        icInfo.Panel.XResolution = "1120";
+        console.log("--------- Start -----------");
+        console.log(icInfo.Panel.XResolution);
+        console.log("--------- End -----------");
+    });
+</script>
+</html>
